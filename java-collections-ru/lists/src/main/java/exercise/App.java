@@ -1,9 +1,11 @@
 package exercise;
 
+// BEGIN
+
 import java.util.Arrays;
 import java.util.ArrayList;
 
-// BEGIN
+
 
 
 class App {
