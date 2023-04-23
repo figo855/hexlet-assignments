@@ -23,7 +23,7 @@ public static Map getWordCount(String sentence) {
 
         }
 
-public static String toString1(Map wordsToCount) {
+public static String toString(Map wordsToCount) {
 
         Map<String, Integer> newWordsToCount = new HashMap(wordsToCount);
         String stringToWordsCount=null;
