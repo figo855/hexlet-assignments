@@ -21,7 +21,7 @@ class App {
 
         }
         return wordsToCount;
-ngrtngiortngoinrtongoirtngoinrtongoirtnoginrtongortngonrtognrotngoirtniogr
+
     }
 
     public static String toString(Map wordsToCount) {
