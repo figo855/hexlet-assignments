@@ -6,24 +6,24 @@ import java.util.*;
 public class App {
     public static LinkedHashMap<String, String> genDiff(Map<String, Object> firstMap, Map<String, Object> secondMap) {
 
-        Map <String, String> tempMap = new TreeMap<>();
+        Set<String> tempSet = new TreeSet<>();
         LinkedHashMap<String, String> resultMap = new LinkedHashMap<>();
 
-        if
+        tempSet.addAll(firstMap.keySet());
+        tempSet.addAll(secondMap.keySet());
 
-        for (Map.Entry<String, Object> map: firstMap.entrySet()) {
-            if (map.getValue().equals(null) && !secondMap.get(map.getKey()).equals(null))
-                tempMap.put(map.getKey(), "added");
-            else if (!map.getValue().equals(null) && secondMap.get(map.getKey()).equals(null))
-                tempMap.put(map.getKey(), "deleted");
-            else if (map.getValue().equals(null) && secondMap.get(map.getKey()).equals(null)) {
-                tempMap.put(map.getKey(), "unchanged");
-            } else if (map.getValue().equals(secondMap.get(map.getKey())))
-                tempMap.put(map.getKey(), "unchanged");
-            else tempMap.put(map.getKey(), "changed");
+        for (String key: tempSet) {
+            if (!firstMap.containsKey(key) && secondMap.containsKey(key)) {
+                resultMap.put(key, "added");
+            } else if (firstMap.containsKey(key) && !secondMap.containsKey(key)) {
+                resultMap.put(key, "deleted");
+            } else if (firstMap.get(key).equals(secondMap.get(key))) {
+                resultMap.put(key, "unchanged");
+            } else if (!firstMap.get(key).equals(secondMap.get(key))) {
+                resultMap.put(key, "changed");
+            }
         }
-        resultMap.putAll(tempMap);
         return resultMap;
-        }
+    }
     }
 //END
