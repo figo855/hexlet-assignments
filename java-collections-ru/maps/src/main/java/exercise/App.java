@@ -14,13 +14,15 @@ class App {
         Map<String, Integer> wordsToCount = new HashMap<>();
 
         for (String word : words) {
-            if (!wordsToCount.containsKey(word)) {
-                wordsToCount.put(word, 0);
-            }
-            wordsToCount.put(word, wordsToCount.get(word) + 1);
+            if (!word.isEmpty()) {
+                if (!wordsToCount.containsKey(word)) {
+                    wordsToCount.put(word, 0);
+                }
+                wordsToCount.put(word, wordsToCount.get(word) + 1);
 
+            }
         }
-        return wordsToCount;
+            return wordsToCount;
 
     }
 
@@ -28,14 +30,11 @@ class App {
 
         Map<String, Integer> newWordsToCount = new HashMap(wordsToCount);
         String stringToWordsCount = null;
+        if (newWordsToCount.isEmpty()) {
+            stringToWordsCount = "{}";
+        } else {
 
         for (Map.Entry<String, Integer> wordToCount : newWordsToCount.entrySet()) {
-
-
-            if (wordToCount.getKey().isEmpty()) {
-                stringToWordsCount = "{}";
-
-            } else {
                 StringBuilder stringWords = new StringBuilder();
                 String a = "{";
                 String b = ": ";
