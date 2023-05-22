@@ -23,7 +23,7 @@ class AppTest {
     @Test
     void testTake2() {
 
-        assertThat(App.take(LIST10, COUNT9)).isEqualTo(LIST10.subList(0, 8));
+        assertThat(App.take(LIST10, COUNT9)).isEqualTo(LIST10.subList(0, 9));
     }
 
     @Test
