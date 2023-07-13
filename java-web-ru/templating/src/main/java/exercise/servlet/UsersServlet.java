@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -75,7 +76,7 @@ public class UsersServlet extends HttpServlet {
                 throws IOException, ServletException {
 
         // BEGIN
-        request.setAttribute("users", getUsers());
+        request.setAttribute("users", users);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/users.jsp");
         requestDispatcher.forward(request, response);
         // END
